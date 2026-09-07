@@ -14,7 +14,7 @@ inspectable — and can also see exactly where inspection stops working.
 ## A note on how this was built
 
 I am not a machine learning engineer. I built this to teach myself how
-transformers work and to demonstrate it to coworkers, and I had substantial help
+transformers work and to demonstrate it to others, and I had substantial help
 from Claude (Anthropic) throughout — most of the Python and JavaScript here was
 written by Claude in conversation with me, across many sessions.
 
