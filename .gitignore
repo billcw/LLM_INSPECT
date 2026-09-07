@@ -1,0 +1,53 @@
+# ---- virtual environment -------------------------------------------------
+llmdemo/
+venv/
+.venv/
+env/
+
+# ---- Python --------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# ---- large regenerable artifacts ----------------------------------------
+# jacobian_cache.pt is ~41 MB and is rebuilt by fit_jacobian.py.
+# Git is bad at binary blobs and GitHub warns over 50 MB, so it stays out.
+*.pt
+*.pth
+*.safetensors
+*.bin
+*.onnx
+
+# ---- model / library caches ---------------------------------------------
+.cache/
+hf_cache/
+huggingface/
+models/
+
+# ---- secrets: nothing with a token in it, ever --------------------------
+.env
+.env.*
+*.token
+secrets.*
+token.txt
+
+# ---- Windows / editor noise ---------------------------------------------
+Thumbs.db
+desktop.ini
+*.lnk
+.vscode/
+.idea/
+*.swp
+*~
+
+# ---- stray redirect artifacts -------------------------------------------
+# A mistyped command can leave a zero-byte file named after a program.
+uvicorn
+
+# ---- personal working notes, not for publication -------------------------
+commands.txt
+git.txt
+cont analys git.txt
+CMD out - including jacobian fit - ui AI investigation project.txt
