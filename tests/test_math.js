@@ -1,0 +1,16 @@
+const test=require('node:test');const assert=require('node:assert/strict');const m=require('../static/math.js');
+test('stable full-vocabulary softmax',()=>{const p=m.softmax([10000,10001,9999],1);assert.ok(Math.abs(p.reduce((a,b)=>a+b,0)-1)<1e-14);assert.ok(p[1]>p[0]);});
+test('greedy ties select first ID',()=>assert.deepEqual(Array.from(m.softmax([3,3,2],0)),[1,0,0]));
+test('temperature preserves positive-temperature ordering',()=>{for(const t of [.1,.3,1,3])assert.deepEqual(m.order(m.softmax([3,1,2],t)),[0,2,1]);});
+test('rank tie broken by ID',()=>assert.deepEqual(m.order([1,1,2]),[2,0,1]));
+test('invalid inputs rejected',()=>{for(const [z,t] of [[[],1],[[NaN],1],[[1],-1],[[1],Infinity]])assert.throws(()=>m.softmax(z,t));});
+test('strict cumulative boundary',()=>{const c=m.cumulative([.25,.5,.25],[0,1,2]);assert.equal(m.draw(c,0),0);assert.equal(m.draw(c,.25),1);assert.equal(m.draw(c,.75),2);assert.equal(m.draw(c,.999999),2);});
+test('zero width intervals never selected',()=>{assert.equal(m.draw([0,0,1],0),2);});
+test('invalid random values rejected',()=>{for(const x of [-.1,1,NaN])assert.throws(()=>m.draw([1],x));});
+test('tail draws resolve to actual vocabulary IDs',()=>{const ids=[8,4,3],c=m.cumulative({8:.6,4:.3,3:.1},ids);assert.equal(ids[m.draw(c,.95)],3);});
+test('mean rows normalized, max envelope not normalized',()=>{const h=[[[1,0],[.9,.1]],[[1,0],[.1,.9]]];assert.deepEqual(m.aggregate(h,'mean')[1],[.5,.5]);assert.equal(m.aggregate(h,'max')[1].reduce((a,b)=>a+b),1.8);});
+test('individual head selection',()=>{const h=[[[1]],[[2]]];assert.equal(m.aggregate(h,'1')[0][0],2);});
+test('HTML escaping protects model and prompt strings',()=>{assert.equal(m.escape('<script>"&\''),'&lt;script&gt;&quot;&amp;&#39;');});
+test('quoted tokens preserve whitespace',()=>assert.equal(m.label(' Tokyo\n'),'" Tokyo\\n"'));
+test('entropy handles zeros',()=>{assert.equal(m.entropy([1,0]),0);assert.ok(Math.abs(m.entropy([.5,.5])-Math.log(2))<1e-14);});
+test('logit precision is not rounded for calculation',()=>{const p=m.softmax([1.0004,1.0001],.01);assert.notEqual(p[0],.5);});

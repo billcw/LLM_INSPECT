@@ -1,4 +1,4 @@
-# ---- virtual environment -------------------------------------------------
+# ---- virtual environments -----------------------------------------------
 llmdemo/
 venv/
 .venv/
@@ -9,22 +9,39 @@ __pycache__/
 *.py[cod]
 *.egg-info/
 .pytest_cache/
+.coverage
+htmlcov/
 .ipynb_checkpoints/
 
-# ---- large regenerable artifacts ----------------------------------------
-# jacobian_cache.pt is ~41 MB and is rebuilt by fit_jacobian.py.
-# Git is bad at binary blobs and GitHub warns over 50 MB, so it stays out.
+# ---- Node / JavaScript ---------------------------------------------------
+node_modules/
+
+# ---- large regenerable model artifacts ---------------------------------
 *.pt
 *.pth
 *.safetensors
 *.bin
 *.onnx
 
-# ---- model / library caches ---------------------------------------------
+# ---- model and library caches -------------------------------------------
 .cache/
 hf_cache/
 huggingface/
 models/
+
+# ---- generated lab reports and exports ---------------------------------
+model_verification*.json
+learning_lab_session*.json
+experiment_notes*.json
+
+# Distribution manifests describe a particular packaged archive, not a
+# changing Git working tree.
+MANIFEST_SHA256.json
+
+# ---- build and distribution output -------------------------------------
+dist/
+build/
+*.zip
 
 # ---- secrets: nothing with a token in it, ever --------------------------
 .env
@@ -42,11 +59,10 @@ desktop.ini
 *.swp
 *~
 
-# ---- stray redirect artifacts -------------------------------------------
-# A mistyped command can leave a zero-byte file named after a program.
+# ---- stray redirect artifacts ------------------------------------------
 uvicorn
 
-# ---- personal working notes, not for publication -------------------------
+# ---- personal working notes, not for publication ------------------------
 commands.txt
 git.txt
 cont analys git.txt

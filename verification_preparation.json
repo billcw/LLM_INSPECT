@@ -1,0 +1,123 @@
+{
+  "created_utc": "2026-09-07T18:41:27.999291+00:00",
+  "python": "3.12.13",
+  "platform": "Linux-6.18.35-x86_64-with-glibc2.39",
+  "node": "v24.19.0",
+  "available_dependencies": {
+    "numpy": true,
+    "torch": false,
+    "transformers": false,
+    "fastapi": false,
+    "httpx": false
+  },
+  "executed_checks": [
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_math.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_affine_dual_matches_primal (test_math.MathTests.test_affine_dual_matches_primal) ... ok\ntest_affine_identity (test_math.MathTests.test_affine_identity) ... ok\ntest_affine_intercept (test_math.MathTests.test_affine_intercept) ... ok\ntest_attention_mask (test_math.MathTests.test_attention_mask) ... ok\ntest_attention_weighted_sum (test_math.MathTests.test_attention_weighted_sum) ... ok\ntest_cache_accounting (test_math.MathTests.test_cache_accounting) ... ok\ntest_gradient_finite_difference (test_math.MathTests.test_gradient_finite_difference) ... ok\ntest_greedy_tie (test_math.MathTests.test_greedy_tie) ... ok\ntest_invalid_metrics (test_math.MathTests.test_invalid_metrics) ... ok\ntest_invalid_softmax (test_math.MathTests.test_invalid_softmax) ... ok\ntest_mean_is_distribution_max_is_not (test_math.MathTests.test_mean_is_distribution_max_is_not) ... ok\ntest_odds_formula (test_math.MathTests.test_odds_formula) ... ok\ntest_optimizer_update (test_math.MathTests.test_optimizer_update) ... ok\ntest_parameter_accounting (test_math.MathTests.test_parameter_accounting) ... ok\ntest_rmsnorm_learned_scale (test_math.MathTests.test_rmsnorm_learned_scale) ... ok\ntest_rounding_logits_changes_distribution (test_math.MathTests.test_rounding_logits_changes_distribution) ... ok\ntest_score_scale (test_math.MathTests.test_score_scale) ... ok\ntest_shift_invariance (test_math.MathTests.test_shift_invariance) ... ok\ntest_softmax_normalizes (test_math.MathTests.test_softmax_normalizes) ... ok\ntest_stability (test_math.MathTests.test_stability) ... ok\ntest_temperature_ranking (test_math.MathTests.test_temperature_ranking) ... ok\ntest_toy_first_position (test_math.MathTests.test_toy_first_position) ... ok\ntest_training_loss_decreases (test_math.MathTests.test_training_loss_decreases) ... ok\ntest_tv_js_disjoint (test_math.MathTests.test_tv_js_disjoint) ... ok\ntest_tv_js_identity (test_math.MathTests.test_tv_js_identity) ... ok\ntest_uniform_vocabulary (test_math.MathTests.test_uniform_vocabulary) ... ok\n\n----------------------------------------------------------------------\nRan 26 tests in 0.037s\n\nOK\n"
+    },
+    {
+      "command": [
+        "node",
+        "--test",
+        "tests/test_math.js",
+        "tests/test_ui.js"
+      ],
+      "exit_code": 0,
+      "stdout": "\u2714 stable full-vocabulary softmax (0.917498ms)\n\u2714 greedy ties select first ID (0.598659ms)\n\u2714 temperature preserves positive-temperature ordering (0.216085ms)\n\u2714 rank tie broken by ID (0.11345ms)\n\u2714 invalid inputs rejected (0.310867ms)\n\u2714 strict cumulative boundary (0.264999ms)\n\u2714 zero width intervals never selected (0.121412ms)\n\u2714 invalid random values rejected (0.208544ms)\n\u2714 tail draws resolve to actual vocabulary IDs (0.194122ms)\n\u2714 mean rows normalized, max envelope not normalized (0.281273ms)\n\u2714 individual head selection (0.122454ms)\n\u2714 HTML escaping protects model and prompt strings (0.188944ms)\n\u2714 quoted tokens preserve whitespace (0.131528ms)\n\u2714 entropy handles zeros (0.111808ms)\n\u2714 logit precision is not rounded for calculation (0.099439ms)\n\u2714 startup wires every control to real HTML IDs (3.492217ms)\n\u2714 navigation changes panel and bounds (1.616389ms)\n\u2714 distribution and temperature render without server rerun (16.767804ms)\n\u2714 stale prompt warning retains provenance (1.179532ms)\n\u2714 attention raw and maximum envelope render with logarithmic profile (2.949231ms)\n\u2714 single-position attention profile is explicit about overlap (2.432675ms)\n\u2714 real-measurement renderers accept structured results (7.304255ms)\n\u2714 numeric arrays receive honest visual summaries and retain exact values (2.029319ms)\n\u2714 learner-facing definitions and seed explanation are present (0.230256ms)\n\u2714 generation render escapes text and retains actual settings (1.242366ms)\n\u2714 remaining result renderers render without undefined fields (1.973255ms)\n\u2139 tests 26\n\u2139 suites 0\n\u2139 pass 26\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 126.117563\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "compileall",
+        "-q",
+        "main.py",
+        "engine.py",
+        "math_core.py",
+        "verify_model.py",
+        "tests"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "node",
+        "--check",
+        "static/app.js"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "node",
+        "--check",
+        "static/math.js"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "bash",
+        "-n",
+        "run.sh"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "offline_test_count": 52,
+  "offline_test_breakdown": {
+    "python_math": 26,
+    "javascript_math_and_rendering": 26
+  },
+  "numpy_version": "2.3.5",
+  "offline_checks_passed": true,
+  "model_api_suite": {
+    "status": "NOT RUN",
+    "defined_test_methods": 20,
+    "reason": "PyTorch is absent from the preparation runtime."
+  },
+  "pretrained_checkpoint_tests": "NOT RUN",
+  "real_browser_e2e_tests": "NOT RUN",
+  "source_sha256": {
+    "README.md": "ef15150fb6b3a1c187740a2170a604c820265d783d2eee329763b16cff554a92",
+    "Version_2_1_Update_Notes.md": "b906c39ef7c3b3622f3e152204bb463d926c3bbcebc60bf058742bb9cc566857",
+    "engine.py": "8b03252ffd5d55a4952fc405545b32d1f4081b7e23ba3438996a2c96631fd12a",
+    "main.py": "fd69c3792fbed51325cd33c1a926889fd72b27ae56f5585b250ce7aaae3b3b50",
+    "math_core.py": "25b715ee0fd2428b8b7ca1b7268fd2d027886628a601fcf79657bffd94dc0e38",
+    "originals/index_original.html": "38447c279f3cebc0a56dc5926bb0ef473bd3909e51b50e0198edd94718157d5d",
+    "originals/main_original.py": "e95b8c8d27d1ffc68e9bf164c496aac2f857f7d7b694b111051a8609ca8fa622",
+    "requirements.txt": "171d73d06ad76de2ba7957556caf7856c307af6d87f2e412e5162ed822dfe1b2",
+    "run.sh": "1f8abd6e839aaa78b648da6c33be82ac9bf10a23b39b2e518c2db292e4879d59",
+    "run_windows.bat": "b2b194103dd57f210c5e0e3dbd5c08924d5fbeefe658b96643d3257c3d33d664",
+    "static/app.js": "ffb94d212b6e2fa8d700bf7bbd82cca0c5123b79554046af03fa021dcc7b9d25",
+    "static/index.html": "5e1f0708c4ba0adaccad83d6eec7b6ab51c17f49dae3925a95be66974c4ccbe4",
+    "static/math.js": "2ec0fa2ed538316ef949bb94a226b850f8ae74b4a5a4a06a2f8c5eaf8f7ff61c",
+    "static/style.css": "03b6ca45de84c7afb67d2eec46209cf46368f8c3439edccc4390a6d00a080f7b",
+    "tests/test_math.js": "54543ce3328e112f11ac8c30d39b9215e179a55ab1d3224fe78ab5f02accb294",
+    "tests/test_math.py": "773a24d1be5defb5b5eb12c779a79ea6b1c2b4d82f9ec4aa8ee42ada1a414ffc",
+    "tests/test_model.py": "f061b31a0af57aa95f16f9d64b3674121001cd35fc57f9690aae765b39f2fe82",
+    "tests/test_ui.js": "94a5e361a27ad758ace379c6ecc3581603c51998b05613bf981d4dba7839151f",
+    "verify_model.py": "61905e5089d4c7657c98046c72667f4bd69bd9cf8f5ae7f02706683a15f16222"
+  }
+}
